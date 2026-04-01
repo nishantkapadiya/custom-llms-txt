@@ -17,10 +17,10 @@ A lightweight, powerful WordPress plugin to dynamically generate and manage your
 
 ## 🚀 Installation
 
-2.  **Activate**: Navigate to the 'Plugins' menu in WordPress and activate **Custom LLMS.txt Generator**.
-3.  **Configure**: Go to the new **LLMS.txt** menu item in your WordPress admin sidebar.
-4.  **Save**: Select your desired post types, add a heading/description, and click **Save Settings**.
-5.  **Verify**: Visit `yourdomain.com/llms.txt` to see your generated file in action.
+1.  **Activate**: Navigate to the 'Plugins' menu in WordPress and activate **Custom LLMS.txt Generator**.
+2.  **Configure**: Go to the new **LLMS.txt** menu item in your WordPress admin sidebar.
+3.  **Save**: Select your desired post types, add a heading/description, and click **Save Settings**.
+4.  **Verify**: Visit `yourdomain.com/llms.txt` to see your generated file in action.
 
 ---
 
