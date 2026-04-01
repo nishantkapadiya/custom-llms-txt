@@ -29,6 +29,10 @@ add_action( 'admin_menu', function () {
  * SETTINGS PAGE
  * ========================================= */
 function llms_txt_settings_page() {
+	
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
 
 	if ( isset( $_POST['llms_save'] ) && check_admin_referer( 'llms_settings_action', 'llms_nonce' ) ) {
 
@@ -176,22 +180,6 @@ function llms_generate_file() {
  * DYNAMIC /llms.txt SUPPORT
  * ========================================= */
 add_action( 'init', function () {
-
-	// Direct access fallback.
-	if ( isset( $_SERVER['REQUEST_URI'] ) && '/llms.txt' === $_SERVER['REQUEST_URI'] ) {
-
-		header( 'Content-Type: text/plain; charset=utf-8' );
-
-		$file = trailingslashit( ABSPATH ) . 'llms.txt';
-
-		if ( file_exists( $file ) ) {
-			readfile( $file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
-		} else {
-			echo llms_generate_content(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		}
-
-		exit;
-	}
 
 	add_rewrite_rule( '^llms\.txt$', 'index.php?llms_txt=1', 'top' );
 	add_rewrite_tag( '%llms_txt%', '1' );
